@@ -3,7 +3,7 @@ import { connectionDB } from "../database/db.js";
 
 export async function validSchemaClients(req,res,next){
     const client = req.body;
-    const {error} = clientSchema.validate(cake, {abortEarly: false});
+    const {error} = clientSchema.validate(client, {abortEarly: false});
     if(error){
         const errors = error.details.map(detail => detail.message);
         return res.status(400).send({errors})
@@ -16,5 +16,5 @@ export async function validSchemaClients(req,res,next){
     res.locals.client = client;
 
     next();
-.3
+
 }

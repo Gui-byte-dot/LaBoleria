@@ -13,6 +13,8 @@ export async function validSchemaCakes(req,res,next){
     if(cakeExists.rowCount !== 0){
         res.sendStatus(409);
     }
+    const onecake = cakeExists.rows[0].price;
+   
     res.locals.cake = cake;
 
     next();
