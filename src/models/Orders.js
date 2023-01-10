@@ -4,6 +4,6 @@ export const orderSchema = joi.object({
     clientId:joi.number().required(),
     cakeId:joi.number().required(),
     createdAt:joi.date(),
-    quantity:joi.number().min(1).max(4).required(),
+    quantity:joi.number().greater(0).less(5).required(),
     totalPrice:joi.number()
 })

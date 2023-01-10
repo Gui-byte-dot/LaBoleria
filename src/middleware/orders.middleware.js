@@ -10,11 +10,11 @@ export async function validSchemaOrders(req,res,next){
         
        const idClientExists = await connectionDB.query("SELECT * FROM clients WHERE id=$1",[clientId]);
        if(idClientExists.rowCount === 0){
-           return res.sendStatus(409);
+           return res.sendStatus(404);
        }
        const idCakeExists = await connectionDB.query("SELECT * FROM cakes WHERE id=$1",[cakeId]);
        if(idCakeExists.rowCount === 0){
-           return res.sendStatus(409);
+           return res.sendStatus(404);
        }
        const order = {
         clientId,
