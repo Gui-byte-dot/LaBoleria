@@ -26,7 +26,7 @@ export async function findClientId(req,res){
             cakes.description AS "cakeDescription",
             cakes.image AS "cakeImage",
             orders.id AS "orderId",
-            orders."createdAt" AS "createdAt",
+            TO_CHAR(orders."createdAt",'YYYY-MM-DD HH24:MI:SS') AS "createdAt",
             orders.quantity AS "quantity",
             orders."totalPrice" AS "totalPrice"
         FROM 
@@ -46,7 +46,7 @@ export async function findClientId(req,res){
             orderId:ord.orderId,
             quantity:ord.quantity,
             createdAt:ord.createdAt,
-            totalPrice:ord.totalPrice,
+            totalPrice:parseFloat(ord.totalPrice).toFixed(2),
             cakeName:ord.cakeName
 
         }))

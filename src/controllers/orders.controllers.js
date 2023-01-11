@@ -55,14 +55,14 @@ export async function findAllOrders(req,res){
                 cake: {
                     id:ord.cakeId,
                     name:ord.cakeName,
-                    price:ord.cakePrice,
+                    price:parseFloat(ord.cakePrice).toFixed(2),
                     description:ord.cakeDescription,
                     image:ord.cakeImage
                 },
                 orderId:ord.orderId,
                 createdAt:ord.createdAt,
                 quantity:ord.quantity,
-                totalPrice:ord.totalPrice
+                totalPrice:parseFloat(ord.totalPrice).toFixed(2)
             }))
                 
             if(getAllOrders.rowCount === 0){
@@ -115,14 +115,14 @@ export async function findAllOrders(req,res){
                 cake: {
                     id:ord.cakeId,
                     name:ord.cakeName,
-                    price:ord.cakePrice,
+                    price:parseFloat(ord.cakePrice).toFixed(2),
                     description:ord.cakeDescription,
                     image:ord.cakeImage
                 },
                 orderId:ord.orderId,
                 createdAt:ord.createdAt,
                 quantity:ord.quantity,
-                totalPrice:ord.totalPrice
+                totalPrice:parseFloat(ord.totalPrice).toFixed(2)
             }))
                 
             if(getAllOrders.rowCount === 0){
@@ -178,14 +178,14 @@ export async function findOrderId(req,res){
             cake: {
                 id:ord.cakeId,
                 name:ord.cakeName,
-                price:ord.cakePrice,
+                price:parseFloat(ord.cakePrice).toFixed(2),
                 description:ord.cakeDescription,
                 image:ord.cakeImage
             },
             orderId:ord.orderId,
             createdAt:ord.createdAt.replace('.000Z',''),
             quantity:ord.quantity,
-            totalPrice:ord.totalPrice
+            totalPrice:parseFloat(ord.totalPrice).toFixed(2)
         }))
             
         if(getAllOrdersId.rowCount === 0){
